@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GR Flight| Premium Flight Experiences</title>
+    <meta name="description"
+        content="Book luxury flights with SkyBound. Experience the future of air travel with our premium booking platform.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z">
+                        </path>
+                    </svg>
+                    SkyBound
+                </div>
+                <!-- Action buttons can go here -->
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Search Section -->
+        <section class="hero" id="home-page">
+            <img src="" alt="Hero Background" class="hero-bg" id="hero-img">
+            <div class="container hero-content">
+                <div class="badge">Elevate your journey</div>
+                <h1>Modern travel for the<br>discerning explorer.</h1>
+                <p>Seamlessly book premium flights to over 200 destinations worldwide.</p>
+
+                <div class="search-box glass">
+                    <form id="search-form">
+                        <div class="search-grid">
+                            <div class="input-group">
+                                <label>From</label>
+                                <select required id="from-city">
+                                    <option value="" disabled selected>Departure City</option>
+                                    <option value="London">London (LHR)</option>
+                                    <option value="New York">New York (JFK)</option>
+                                    <option value="Dubai">Dubai (DXB)</option>
+                                    <option value="Singapore">Singapore (SIN)</option>
+                                    <option value="Tokyo">Tokyo (HND)</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>To</label>
+                                <select required id="to-city">
+                                    <option value="" disabled selected>Destination City</option>
+                                    <option value="New York">New York (JFK)</option>
+                                    <option value="London">London (LHR)</option>
+                                    <option value="Dubai">Dubai (DXB)</option>
+                                    <option value="Singapore">Singapore (SIN)</option>
+                                    <option value="Tokyo">Tokyo (HND)</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>Date</label>
+                                <input type="date" required id="search-date">
+                            </div>
+                            <div class="input-group">
+                                <label>Passengers</label>
+                                <select id="passengers">
+                                    <option value="1">1 Passenger</option>
+                                    <option value="2">2 Passengers</option>
+                                    <option value="3">3 Passengers</option>
+                                    <option value="4">4 Passengers</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            Search Flights
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14m-7-7 7 7-7 7" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Results Section -->
+        <section id="results-page">
+            <div class="container">
+                <div class="section-header">
+                    <button id="back-to-search" class="btn-text">← Back to search</button>
+                    <h2 id="search-title">Available Flights</h2>
+                </div>
+                <div id="flights-container">
+                    <!-- Flights will be injected here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Booking Modal -->
+    <div class="modal-overlay" id="booking-modal">
+        <div class="modal-content glass">
+            <h2>Complete Your Booking</h2>
+            <p>Enter passenger details for your flight to <span id="target-dest">...</span></p>
+
+            <form id="booking-form" style="margin-top: 2rem;">
+                <div class="search-grid" style="grid-template-columns: 1fr;">
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="John Doe" required id="p-name">
+                    </div>
+                    <div class="input-group">
+                        <label>Passport Number</label>
+                        <input type="text" placeholder="A12345678" required id="p-passport">
+                    </div>
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="john@example.com" required id="p-email">
+                    </div>
+                </div>
+                <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                    <button type="button" class="btn" id="cancel-booking"
+                        style="background: rgba(255,255,255,0.1);">Cancel</button>
+                    <button type="submit" class="btn btn-primary" style="flex: 1;">Confirm Booking</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Screen (Full Screen Overlay) -->
+    <div id="success-screen" class="modal-overlay" style="background: var(--bg-deep);">
+        <div class="container" style="text-align: center;">
+            <div class="success-icon">✓</div>
+            <h2>Booking Confirmed!</h2>
+            <p>Your tickets have been sent to your email. Get ready for takeoff!</p>
+            <div id="ticket-preview" class="glass"
+                style="max-width: 400px; margin: 3rem auto; padding: 2rem; text-align: left;">
+                <!-- Ticket details -->
+            </div>
+            <button class="btn btn-primary" onclick="location.reload()">Book Another Trip</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
